@@ -11,6 +11,29 @@ var data_table = {
   "Not at all interested": []
 }
 
+const studentData = [
+  {name: "Networks and File Management", usage: "", interest: ""},
+  {name: "Metacognition and Life-Long learning", usage: "", interest: ""},
+  {name: "Troubleshooting", usage: "", interest: ""},
+  {name: "Managing digital identity, privacy and security", usage: "", interest: ""},
+  {name: "Strategic web and database searching", usage:"", interest: ""},
+  {name: "Collaborative Communication", usage: "", interest: ""},
+  {name: "Digital Writing and Publishing", usage: "", interest: ""},
+  {name: "Audiovisual Analysis and Production", usage: "", interest: ""},
+  {name: "Electronic data collection", usage: "", interest: ""},
+  {name: "Privacy, Security and Preservation", usage: "", interest: ""},
+  {name: "Cleaning, Organizing and Managing data", usage: "", interest: ""},
+  {name: "Metadata", usage: "", interest: ""},
+  {name: "Data Queries and Reporting", usage: "", interest: ""},
+  {name: "Data Analysis", usage: "", interest: ""},
+  {name: "Critical Data Visualization", usage: "", interest: ""},
+  {name: "Algorithmic Thinking/Coding", usage: "", interest: ""},
+  {name: "Design Thinking", usage: "", interest: ""},
+  {name: "Project Management", usage: "", interest: ""},
+  {name: "Digital Research and Scholarship", usage: "", interest: ""},
+]
+
+const dbName = "the_dataBase";
 //local storage of window
 var windowStorage = window.sessionStorage;
 windowStorage.setItem('data', JSON.stringify(data_table))
