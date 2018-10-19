@@ -1,16 +1,6 @@
-//Javascript object that will hold the data entered by the user
-//Is indexed by the level of interest
-//Will store an array of skills-input pairs
-//global variable data_table
+db;
 
-var data_table = {
-  "Very Interested": [],
-  "Somewhat Interested": [],
-  "Neutral": [],
-  "Not Very Interested": [],
-  "Not at all interested": []
-}
-
+//studentData is an array of 19 objects
 const studentData = [
   {name: "Networks and File Management", usage: "", interest: ""},
   {name: "Metacognition and Life-Long learning", usage: "", interest: ""},
@@ -31,65 +21,104 @@ const studentData = [
   {name: "Design Thinking", usage: "", interest: ""},
   {name: "Project Management", usage: "", interest: ""},
   {name: "Digital Research and Scholarship", usage: "", interest: ""},
-]
+];
 
-const dbName = "the_dataBase";
-//local storage of window
-var windowStorage = window.sessionStorage;
-windowStorage.setItem('data', JSON.stringify(data_table))
+//Setting up the database
 
-
-
-class UserData {
-  constructor(skillName, skillUsage, interestLevel) {
-    this.skillName = skillName;
-    this.skillUsage = skillUsage;
-    this.interestLevel = interestLevel;
-  }
-
-  get_skilllName() {
-    return this.skillName;
-  }
-
-  get_skillUsage() {
-    return this.skillUsage;
-  }
-
-  get_interestLevel() {
-    return this.interestLevel;
-  }
+if(!window.indexedDB) {
+  console.log("This browser does not support IndexedDB")
 }
 
-//pageData is a list of UserData objects created on the page
-class PageData {
-  constructor(pageName, pageData) {
-    this.pageName = pageName;
-    this.pageData = pageData;
+  var request = indexedDB.open("studentDatabase", 2);
+
+  request.onupgradeneeded = function(event) {
+    db = event.target.result;
+    if (!db.objectStoreNames.contains("studentData")) {
+      var objectStore = db.createObjectStore("studentData", {keyPath: "name"})
+      //create an index to search studentData by interest Level
+      objectStore.createIndex("interest", "interest", {unique: false});
+    }
+    //accessing the studentData object store through the transaction object.
+    //transaction takes the store name and the mode
+    objectStore.transaction.oncomplete = function(event) {
+      var studentDataObjectStore = db.transaction("studentData", "readwrite").objectStore("studentData")
+      studentData.forEach(function(info) {
+        studentDataObjectStore.add(info)
+      });
+    };
+  };
+
+  request.onerror = function(event) {
+    alert("Database error: " + event.target.errorCode)
+  };
+
+  request.onsuccess = function(event) {
+    db = event.target.result; //(request.result is an instance of the database)
+    console.dir(db.objectStoreNames);
+    $('#updateDB').on('click', updateValues);
+    // db.onerror = function(event) {
+    //   alert("Database error: " + event.target.errorCode);
+  };
+
+
+//Updating the values in the database
+  function updateValues() {
+    var data = document.querySelectorAll('.userData')
+    for (i=0; i < data.length; i++) {
+      var name = data[i].querySelector('.nameOfskill').innerHTML;
+      var usage = data[i].querySelector('.form-control').value;
+      var interest = data[i].querySelector('.custom-select').value;
+
+      var transaction = db.transaction('studentData', 'readwrite');
+      var studentdta = transaction.objectStore('studentData');
+      var item = {
+        name: name,
+        usage: usage,
+        interest: interest
+      }
+      studentdta.put(item);
+
+      request.onerror = function(e) {
+        console.log("Error", e.target.error.name);
+      }
+
+      request.onsuccess = function(e) {
+        console.log("It's in!");
+      }
+    }
+    document.getElementById('updateDB').innerHTML = 'SUCCESS! Keep Reflecting'
   }
 
-  get_pageName() {
-    return this.pageName;
+//filling the summary table
+  function fillSummaryTable() {
+    var transaction = db.transaction('studentData', 'readonly');
+    var studentdta = transaction.objectStore('studentData');
+    var interestLevels = studentdta.index("interest")
+
+    var cursor = interestLevels.openCursor();
+
+    cursor.onsuccess = function(e) {
+      var cursor = e.target.result;
+      if (cursor) {
+        var this_table = document.getElementById(cursor.key);
+        var this_body = this_table.getElementsByTagName('tbody');
+        var this_row = this_body.insertRow();
+        var cell1 = this_row.insertCell(0);
+        var cell2 = this_row.insertCell(1);
+        for (var field in cursor.value){
+          if (field = "name") {
+            cell1.innerHTML = cursor.value[field];
+          }s
+          if (field = "usage"){
+            cell2.innerHTML = cursor.value[field];
+          }
+        }
+      }
+    }
+    request.onsuccess = function(e) {
+      console.log("We got it")
+    }
+    request.onerror = function(e) {
+      console.log("We don't got it")
+    }
   }
-
-  get_pageData() {
-    return this.pageData;
-  }
-}
-
-
-function createlistOfDataObj(table) {
-  var thispageUserData = [];
-  // var table = document.querySelector('#digisurvivalMain')
-  //get name of skill from the skill column of the table
-  $(table).find('.userData').each(function(){
-    var skillName = $(this).querySelector('.nameOfskill').html();
-    console.log(skillName);
-    // get the skillUsage and interest level information from the "How you use it & Lvl of interest column"
-    var skillUsage = $(this).querySelector('.form-group, .form-control').val();
-    var interesLevel = $(this).querySelector('.form-group, .custom-select').val();
-    //creates an instance of UserData with the variables
-    let userDataObj = new UserData(skillName, skillUsage, interestLevel);
-    thispageUserData.push(userDataObj);
-  })
-    window.localStorage.setItem('digiSurvival', JSON.stringify(thispageUserData));
-}
