@@ -1,10 +1,10 @@
-$(document).ready(function (){
+//$(document).ready(function (){
 
   /**
   *   Opens the database
   */
   studentDB.open();
-  console.log("I'm still running"); });
+  console.log("I'm still running");
 
   /**
   *   Is called in the view to update the database
@@ -12,6 +12,7 @@ $(document).ready(function (){
   *   and passes object to the updateDB method of the database
   */
   function updateValues() {
+    console.log('updateTest', studentDB.database);
     var data = document.querySelectorAll('.userData')
     for (var i=0; i < data.length; i++) {
       var name = data[i].querySelector('.nameOfskill').innerHTML;
@@ -26,7 +27,7 @@ $(document).ready(function (){
       studentDB.updateDB(item)
     }
     document.getElementById('updateDB').innerHTML = 'SUCCESS! Keep Reflecting'
-  }
+  };
 
   /**
   *   Fills the summary page with the data in the database
@@ -35,29 +36,24 @@ $(document).ready(function (){
   */
 
   function fillSummaryTable() {
-    var dataObj = [];
-    studentDB.getDataByInterest(summaryTable(dataObj));
-  }
-
-  /**
-  *   The function that actually manipulates and updates the summry table
-  *   Is passed to the getDataByInterest method to be executed once that method returns
-  */
-
-  function summaryTable(dataObj) {
-    var key;
-    for (var i = 0; i < dataObj.length; i++){
-      for (key in dataObj[i]) {
-        var value = dataObj[i][key];
-        for (var j = 0; j < value.length; j++) {
-          var this_table = document.getElementById(key);
-          var this_body = this_table.getElementsByTagName('tbody');
-          var this_row = this_body.insertRow();
-          var cell1 = this_row.insertCell(0);
-          var cell2 = this_row.insertCell(1);
-          cell1.innerHTML = value.name;
-          cell2.innerHTML = value.usage;
+    console.log("This works", studentDB.database);
+    studentDB.getDataByInterest(function(dataobjs) {
+      var key;
+      for (var i = 0; i < dataobjs.length; i++){
+        for (key in dataobjs[i]) {
+          var value = dataobjs[i][key];
+          for (var j = 0; j < value.length; j++) {
+            var this_table = document.getElementById(key);
+            var this_body = this_table.getElementsByTagName('tbody');
+            var this_row = this_body.insertRow();
+            var cell1 = this_row.insertCell(0);
+            var cell2 = this_row.insertCell(1);
+            cell1.innerHTML = value.name;
+            cell2.innerHTML = value.usage;
+          }
         }
       }
-    }
-  }
+    })
+  };
+
+//});

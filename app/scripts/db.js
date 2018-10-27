@@ -93,6 +93,7 @@
 
   stdDB.getDataByInterest = function(callback) {
     var db = database;
+    console.log(db);
     var transaction = db.transaction('studentData', 'readonly');
     var objectstr = transaction.objectStore('studentData');
 
