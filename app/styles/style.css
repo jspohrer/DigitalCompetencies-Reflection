@@ -313,12 +313,54 @@ p, a, span {
 }
 
 .custom-btn {
-  border-radius: 8px;
+  border-radius: 12px;
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-  margin: auto;
   padding-left:10px;
-  color:lavender;
+  color:#fff;
   font-family:'Mali', cursive;
   font-size:26px;
-  height:100px;
+}
+
+
+/* .navbar {
+  width: 100%;
+  background-color: #333;
+  overflow: hidden;
+  padding-top: 0px;
+  position: sticky;
+}
+
+@media screen and (max-width: 500px) {
+  .navbar a {
+    float: left;
+    display: block;
+  }
+}
+
+.navbar a {
+  float: left;
+  display: block;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px;
+  color:#fff;
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.content {
+  padding: 16px;
+}
+
+/* .sticky + .content {
+  padding-top: 60px;
+} */
+
+@media print {
+  .summary-header {display: none}
+  
 }

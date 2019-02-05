@@ -6,10 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <script src="https://cdn.ckeditor.com/4.9.1/standard/ckeditor.js"></script>
-  <script src=script.js></script>
-
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
   <link rel='stylesheet' href='styles\style.css'>
   <link href="https://fonts.googleapis.com/css?family=Gugi" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
@@ -18,16 +16,22 @@
 </head>
 <body>
 
-  <section class='datamanagement-header'>
-    <div class="progress" style="padding-bottom: 10px;">
-      <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width:60%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
-    </div>
+  <section class='datamanagement-header' style="padding-top:55px;">
     <div id='jumbotron-brown' class='jumbotron jumbotron-fluid'>
       <h1 class='display-4 main-heading'>
         Data Management & Preservation
         <!-- <small class='text-muted'> Let's Reflect </small> -->
       </h1>
     </div>
+    <nav class='navbar fixed-top navbar-dark bg-dark' role='navigation' style="padding:14px;">
+        <div class='container-fluid'>
+        <a href='index.html' style='color:#fff;'><i class='fa fa-fw fa-home'></i>Home</a>
+        <a onclick='history.back()' style='color:#fff; cursor:pointer;'><i class='fa fa-fw fa-angle-left'></i>Back</a>
+        <a href='data_analysis_and_presentation.html' style='color:#fff;'><i class='fa fa-fw fa-angle-right'></i>Next</a>
+        <a href='summary.html' style='color:#fff;'><i class='fa fa-clipboard-list'></i>Summary</a>
+        <a href='https://www.brynmawr.edu/digitalcompetencies'style='color:#fff;'><i class='fa fa-fw fa-external-link-alt'></i>Learn More</a>
+    </div>
+  </nav>
   </section>
 
   <section id='datamanage-main'>
@@ -162,8 +166,6 @@
         </tr>
         <tr>
           <td><button id='updateDB' onclick="updateValues(); this.disabled=true;" class="btn btn-outline-dark btn-lg btn-block custom-btn">Finished this Page. Whoot!</button></td>
-          <td><a class="btn btn-outline-dark btn-lg btn-block custom-btn" onclick="history.back()" style="padding-top:30px;"> &lt  Digital Communication Skills</a></td>
-          <td><a href="data_analysis_and_presentation.html" class="btn btn-outline-dark btn-lg btn-block custom-btn" style="padding-top:30px;">Data Analysis & Presentation  &gt</a></td>
         </tr>
       </tbody>
     </table>
