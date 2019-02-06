@@ -11,6 +11,9 @@
   <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Mali" rel="stylesheet">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://unpkg.com/jspdf@latest/dist/jspdf.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.auto.min.js"></script>
   </head>
 <body>
   <section class='summary-header'>
@@ -18,7 +21,7 @@
         <div class='container-fluid'>
         <a href='index.html' style='color:#fff;'><i class='fa fa-fw fa-home'></i>Home</a>
         <a onclick='history.back()' style='color:#fff; cursor:pointer;'><i class='fa fa-fw fa-angle-left'></i>Back</a>
-        <a href='mailto:xyz@gmail.com' style='color:#fff;'><i class='fa fa-at'></i>Save</a>
+        <a onclick='printToPDF()' style='color:#fff;'><i class='fa fa-at'></i>Save</a>
         <a href='https://www.brynmawr.edu/digitalcompetencies'style='color:#fff;'><i class='fa fa-fw fa-external-link-alt'></i>Learn More</a>
     </div>
   </nav>
@@ -30,87 +33,89 @@
   </section>
 
   <!-- Table for the Very Interested Level -->
-  <table id= 'Very Interested' class='table table-striped table-dark' style="table-layout:fixed;">
-    <thead>
-      <tr>
-        <th scope='col' colspan="2"> Very Interested </th>
-      </tr>
-    </thead>
-    <thead>
-      <tr>
-        <th scope='col'>Skill</th>
-        <th scope='col'>How you use it</th>
-    </thead>
-    <tbody>
-    </tbody>
-  </table>
+  <div id="convertTopdf">
+    <table id= 'Very Interested' class='table table-striped table-dark' style="table-layout:fixed;">
+      <thead>
+        <tr>
+          <th scope='col' colspan="2"> Very Interested </th>
+        </tr>
+      </thead>
+      <thead>
+        <tr>
+          <th scope='col'>Skill</th>
+          <th scope='col'>How you use it</th>
+      </thead>
+      <tbody>
+      </tbody>
+    </table>
 
-  <table id='Somewhat Interested' class='table table-striped table-light' style="table-layout:fixed">
-    <thead>
-      <tr>
-        <th scope='col' colspan="2"> Somewhat Interested </th>
-      </tr>
-    </thead>
-    <thead>
-      <tr>
-        <th scope='col'>Skill</th>
-        <th scope='col'>How you use it</th>
-    </thead>
-    <tbody>
-    </tbody>
-  </table>
+    <table id='Somewhat Interested' class='table table-striped table-light' style="table-layout:fixed">
+      <thead>
+        <tr>
+          <th scope='col' colspan="2"> Somewhat Interested </th>
+        </tr>
+      </thead>
+      <thead>
+        <tr>
+          <th scope='col'>Skill</th>
+          <th scope='col'>How you use it</th>
+      </thead>
+      <tbody>
+      </tbody>
+    </table>
 
-  <table id="Neutral" class='table table-striped table-dark' style="table-layout:fixed">
-    <thead>
-      <tr>
-        <th scope='col' colspan="2">Neutral</th>
-      </tr>
-    </thead>
-    <thead>
-      <tr>
-        <th scope='col'>Skill</th>
-        <th scope='col'>How you use it</th>
-    </thead>
-    <tbody>
-    </tbody>
-  </table>
+    <table id="Neutral" class='table table-striped table-dark' style="table-layout:fixed">
+      <thead>
+        <tr>
+          <th scope='col' colspan="2">Neutral</th>
+        </tr>
+      </thead>
+      <thead>
+        <tr>
+          <th scope='col'>Skill</th>
+          <th scope='col'>How you use it</th>
+      </thead>
+      <tbody>
+      </tbody>
+    </table>
 
-  <table id="Not Very Interested" class='table table-striped table-light' style="table-layout:fixed">
-    <thead>
-      <tr>
-        <th scope='col' colspan="2"> Not Very Interested </th>
-      </tr>
-    </thead>
-    <thead>
-      <tr>
-        <th scope='col'>Skill</th>
-        <th scope='col'>How you use it</th>
-    </thead>
-    <tbody>
-    </tbody>
-  </table>
+    <table id="Not Very Interested" class='table table-striped table-light' style="table-layout:fixed">
+      <thead>
+        <tr>
+          <th scope='col' colspan="2"> Not Very Interested </th>
+        </tr>
+      </thead>
+      <thead>
+        <tr>
+          <th scope='col'>Skill</th>
+          <th scope='col'>How you use it</th>
+      </thead>
+      <tbody>
+      </tbody>
+    </table>
 
-  <table id="Not at all interested" class='table table-striped table-dark' style="table-layout:fixed">
-    <thead>
-      <tr>
-        <th scope='col' colspan="2"> Not at all Interested </th>
-      </tr>
-    </thead>
-    <thead>
-      <tr>
-        <th scope='col'>Skill</th>
-        <th scope='col'>How you use it</th>
-    </thead>
-    <tbody>
-    </tbody>
-  </table>
-
+    <table id="Not at all interested" class='table table-striped table-dark' style="table-layout:fixed">
+      <thead>
+        <tr>
+          <th scope='col' colspan="2"> Not at all Interested </th>
+        </tr>
+      </thead>
+      <thead>
+        <tr>
+          <th scope='col'>Skill</th>
+          <th scope='col'>How you use it</th>
+      </thead>
+      <tbody>
+      </tbody>
+    </table>
+  </div>
 </body>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
 <script src='scripts\db.js'></script>
 <script src='scripts\app.js'></script>
+<script src='scripts\html2canvas.min.js'></script>
 <!-- getElementsByTagName returns nodelist -->
 <script> (document.getElementsByTagName("body")[0]).addEventListener("load", getAll())</script>
 </html>
