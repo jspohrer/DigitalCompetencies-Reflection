@@ -110,7 +110,8 @@
 
   function printToPDF() {
     var summaryPDF = "YourResults.pdf";
-    html2canvas(document.querySelector("#convertTopdf")).then(canvas => {
+    var quality = 1
+    html2canvas(document.querySelector("#convertTopdf"), {scale: quality}).then(canvas => {
       let pdf = new jsPDF('p', 'mm', 'a4');
       pdf.addImage(canvas.toDataURL('image/png'), 'PNG', 0, 0, 211, 298);
       pdf.save(summaryPDF);
