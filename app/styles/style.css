@@ -20,6 +20,10 @@ body{
   font-size: 6vw;
 }
 
+.main-header {
+  width: 100%
+}
+
 
 #main-content {
   /*background: linear-gradient(to right, lavender, #c1fcac, #fefe9d, lavenderblush, #dcb6e1);*/
@@ -362,5 +366,5 @@ p, a, span {
 
 @media print {
   .summary-header {display: none}
-  
+
 }
