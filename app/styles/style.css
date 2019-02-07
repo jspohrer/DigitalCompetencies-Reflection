@@ -20,8 +20,9 @@ body{
   font-size: 6vw;
 }
 
-.main-header {
-  width: 100%
+.sizedTable {
+  width: 100%;
+  display: block;
 }
 
 
