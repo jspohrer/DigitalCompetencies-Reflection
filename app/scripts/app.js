@@ -110,10 +110,10 @@
 
   function printToPDF() {
     var summaryPDF = "YourResults.pdf";
-    var quality = 5
+    var quality = 3
     html2canvas(document.querySelector("#convertTopdf"), {scale: quality}).then(canvas => {
       let pdf = new jsPDF('p', 'mm', 'a4');
-      pdf.addImage(canvas.toDataURL('image/png'), 'PNG', 0, 0, 211, 298);
+      pdf.addImage(canvas.toDataURL('image/png'), 'PNG', 0, 0, 298, 421);
       pdf.save(summaryPDF);
     });
   }

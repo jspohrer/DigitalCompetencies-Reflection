@@ -48,20 +48,18 @@
       </thead>
       <tbody style="display:block;">
         <tr class='userData'>
-          <td class='col-3'>
-            <table>
-              <caption class='nameOfskill' style='width:300px;'>Collaborative Communication</caption>
-              <tr class='col-3'><td><img src='Media Files\2.1_collabcommun.png' class='rounded float-left' alt='' height=200px width=200px></img></td></tr>
-            </table>
-          </td>
-          <td class='col-3'>
+          <td class='col-1'>
+            <img src='Media Files\2.1_collabcommun.png' class='rounded float-left' alt='' height=200px style="display:block-inline;"></img>
+            <p class="nameOfskill" style="margin-top:200px">Collaborative Communication</p>
+        </td>
+          <td class='col-4'>
             <ul>
               <li style='margin:10px;font-size:20px;'>Edit collaboratively</li>
               <li style='margin:10px;font-size:20px;'>Post on online message boards</li>
               <li style='margin:10px;font-size:20px;'>Chat and make video calls online</li>
             </ul>
           </td>
-          <td class='col-3'>
+          <td class='col-7'>
             <form>
               <div class='form-group'>
                 <div class='input-group input-group-lg' style='margin:auto;'><textarea class='form-control' name="Editor1" rows='8' cols='50' placeholder='How you use this....'></textarea></div>
@@ -77,23 +75,22 @@
               </div>
             </div>
           </form>
-          </td>
+        </td>
         </tr>
 
         <tr class='userData'>
-          <th scope='row'>
-            <table>
-              <caption class='nameOfskill' style='width:300px;font-family:'Roboto', sans-serif;'>Digital Writing and Publishing</caption>
-              <tr><td><img src='Media Files\2.2_digitalwriting.png' class='rounded float-left' alt='' height=200px width=200px></img></td></tr>
-            </table>
-          <td>
+          <td class='col-1'>
+            <img src='Media Files\2.2_digitalwriting.png' class='rounded float-left' alt='' height=200px style="position:relative;"></img>
+            <p class="nameOfskill" style="margin-top:200px">Digital Writing and Publishing</p>
+          </td>
+          <td class='col-4'>
             <ul>
               <li style='margin:10px;font-size:20px;'>Write and format blogs</li>
               <li style='margin:10px;font-size:20px;'>Make interactive documents</li>
               <li style='margin:10px;font-size:20px;'>Maintain a website and/or personal or professional social media accounts
             </ul>
           </td>
-          <td>
+          <td class='col-7'>
             <div class='input-group input-group-lg' style='margin:auto;'><textarea class='form-control' name="Editor2" rows='8' cols='50' placeholder='How you use this...'></textarea></div>
             <div class='input-group mb-3' style='margin:5px;'>
             <select class='custom-select' id='inputGroupSelect02'>
@@ -105,22 +102,20 @@
               <option value='Very Interested'>Very Interested</option>
             </select>
           </div>
-          </td>
+        </td>
         </tr>
-
         <tr class='userData'>
-          <th scope='row'>
-            <table>
-              <caption class='nameOfskill' style='width:300px;font-family:'Roboto', sans-serif;'>Audiovisual Analysis and Production</caption>
-              <tr><td><img src='Media Files\2.3_audiovisual.png' class='rounded float-left' alt='' height=200px width=200px></img></td></tr>
-            </table>
-          <td>
+          <td class='col-1'>
+            <img src='Media Files\2.3_audiovisual.png' class='rounded float-left' alt='' height=200px style="position:relative;"></img>
+            <p class="nameOfskill" style="margin-top:200px">Audiovisual Analysis and Production</p>
+          </td>
+            <td class='col-4'>
             <ul>
               <li style='margin:10px;font-size:20px;'>Analyze image/film/audio</li>
               <li style='margin:10px;font-size:20px;'>Tell stories through podcasts or videos</li>
             </ul>
           </td>
-          <td>
+          <td class='col-7'>
             <div class='input-group input-group-lg' style='margin:auto;'><textarea class='form-control' name="Editor3" rows='8' cols='50' placeholder='How you use this...'></textarea></div>
             <div class='input-group mb-3' style='margin:5px;'>
             <select class='custom-select' id='inputGroupSelect02'>
@@ -132,7 +127,7 @@
               <option value='Very Interested'>Very Interested</option>
             </select>
           </div>
-          </td>
+        </td>
         </tr>
         <tr>
           <td><button id='updateDB' onclick="updateValues(); this.disabled=true;" class="btn btn-outline-dark btn-lg btn-block custom-btn">Finished this Page. Whoot!</button></td>

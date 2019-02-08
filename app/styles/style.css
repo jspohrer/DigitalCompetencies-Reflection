@@ -7,7 +7,6 @@ body{
 
 }
 
-
 .main-page {
     background: linear-gradient(to right, lavender, #dcb6e1);
 }
@@ -26,7 +25,6 @@ body{
   display: block;
 }
 
-
 #main-content {
   /*background: linear-gradient(to right, lavender, #c1fcac, #fefe9d, lavenderblush, #dcb6e1);*/
   background: #fff;
@@ -37,6 +35,12 @@ body{
 th {
   font-size: 28px;
   font-family: 'Raleway', sans-serif;
+}
+
+.nameOfskill {
+  font-size: 22px;
+  font-family: 'Raleway', sans-serif;
+  color: #fff;
 }
 
 #nav-menu {
@@ -272,6 +276,11 @@ p, a, span {
     left: 200px;
 }
 
+ /*img {
+  width:50%;
+  height:auto;
+}*/
+
 .introicon {
   position: center;
 }
@@ -328,6 +337,8 @@ p, a, span {
 }
 
 
+
+
 /* .navbar {
   width: 100%;
   background-color: #333;
@@ -367,7 +378,7 @@ p, a, span {
 } */
 
 [class*='col -'] {
-  width: 100%;
+  width: 50%;
 }
 
 @media only screen and (min-width: 768px) {
@@ -383,4 +394,16 @@ p, a, span {
   .col-10 {width: 83.33%;}
   .col-11 {width: 91.66%;}
   .col-12 {width: 100%;}
+}
+
+@media only screen and (max-width:600px) {
+  tr { display: block; float: left; }
+  th, td { display: block; }
+  .nameOfskill {
+    margin-top:10px;
+    font-size:28px;
+  }
+  .col-1 {max-height: 8.33%;}
+  .col-4 {max-width: 75%;}
+  .col-7 {max-width:83.33%;}
 }
