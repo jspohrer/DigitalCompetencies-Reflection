@@ -66,13 +66,13 @@
 
   /**
   *   Updates sepcific data in the database
-  *   Input: Obj (contains name of skill, usage and interest), callback function
+  *   Input: Obj (contains name of skill, usage and interest)
   *   Output: Callback function
   */
 
   stdDB.updateDB = function(obj) {
-    console.log("code doesn't get here");
-    console.log(database);
+    //console.log("code doesn't get here");
+    //console.log(database);
     var db = database;
     console.log(db);
     var transaction = db.transaction('studentData', 'readwrite')
@@ -138,7 +138,7 @@
   */
 
   stdDB.getData = function(callback) {
-    console.log("code doesn't get here")
+    //console.log("code doesn't get here")
     var db = database;
     var transaction = db.transaction('studentData', 'readonly');
     var objectstr = transaction.objectStore('studentData');

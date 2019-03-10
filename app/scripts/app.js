@@ -113,7 +113,7 @@
     var quality = 3
     html2canvas(document.querySelector("#convertTopdf"), {scale: quality}).then(canvas => {
       let pdf = new jsPDF('p', 'mm', 'a4');
-      pdf.addImage(canvas.toDataURL('image/png'), 'PNG', 0, 0, 298, 421);
+      pdf.addImage(canvas.toDataURL('image/jpeg'), 'JPEG', 0, 0, 149, 211);
       pdf.save(summaryPDF);
     });
   }

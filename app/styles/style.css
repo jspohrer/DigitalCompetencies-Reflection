@@ -406,4 +406,5 @@ p, a, span {
   .col-1 {max-height: 8.33%;}
   .col-4 {max-width: 75%;}
   .col-7 {max-width:83.33%;}
+  .col-6 {max-width:91.66% }
 }
