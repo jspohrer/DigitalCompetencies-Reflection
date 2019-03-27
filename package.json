@@ -1,0 +1,24 @@
+{
+  "name": "digicomp_web_application",
+  "version": "1.0.0",
+  "description": "\"\"",
+  "main": "server.js",
+  "scripts": {
+    "test": "\"\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lgoloh/DigitalCompetencies-Reflection.git"
+  },
+  "author": "\"Leslie\"",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lgoloh/DigitalCompetencies-Reflection/issues"
+  },
+  "homepage": "https://github.com/lgoloh/DigitalCompetencies-Reflection#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "mysql": "^2.16.0"
+  }
+}

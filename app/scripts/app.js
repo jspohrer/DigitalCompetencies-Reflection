@@ -4,12 +4,17 @@
   *   and passes object to the updateDB method of the database
   */
 
+  var server = require('./app/server.js')
+  const Url = "http://localhost:3306/usage";
+
 
   function updateValues() {
+    //updateSQLDB();
     studentDB.open(update);
   };
 
-  function update() {
+
+  function createUsageItem() {
     var data = document.querySelectorAll('.userData')
     for (var i=0; i < data.length; i++) {
       var name = data[i].querySelector('.nameOfskill').innerHTML;
@@ -21,10 +26,29 @@
         usage: usage,
         interest: interest
       }
+      return item;
+  }
+
+  function update() {
+      var item = createUsageItem();
       studentDB.updateDB(item)
     }
     document.getElementById('updateDB').innerHTML = 'SUCCESS! Keep Reflecting'
   };
+
+  function updateSQLDB() {
+    var item = createUsageItem();
+    var id = Date.now() + Math.random().toString(36).substr(2, 9);
+    var sqpldata = {
+      competency: item.name,
+      interest: item.interest,
+      usage: item.usage,
+      user: id
+    }
+    $.post(Url, sqldata, function(sqldata, status) {
+      console.log(`${sqldata} and status is ${status}`)
+    })
+};
 
   /**
   *   Fills the summary page with the data in the database
