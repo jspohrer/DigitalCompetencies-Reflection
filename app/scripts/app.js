@@ -4,12 +4,11 @@
   *   and passes object to the updateDB method of the database
   */
 
-  var server = require('./app/server.js')
-  const Url = "http://localhost:3306/usage";
+  //var server = require('./app/server.js')
+  //const Url = "http://localhost:3306/usage";
 
 
   function updateValues() {
-    //updateSQLDB();
     studentDB.open(update);
   };
 
@@ -28,9 +27,20 @@
       }
       return item;
   }
+};
 
   function update() {
-      var item = createUsageItem();
+      var data = document.querySelectorAll('.userData')
+      for (var i=0; i < data.length; i++) {
+        var name = data[i].querySelector('.nameOfskill').innerHTML;
+        var usage = data[i].querySelector('.form-control').value;
+        var interest = data[i].querySelector('.custom-select').value;
+
+        var item = {
+          name: name,
+          usage: usage,
+          interest: interest
+        }
       studentDB.updateDB(item)
     }
     document.getElementById('updateDB').innerHTML = 'SUCCESS! Keep Reflecting'
@@ -140,4 +150,4 @@
       pdf.addImage(canvas.toDataURL('image/jpeg'), 'JPEG', 0, 0, 149, 211);
       pdf.save(summaryPDF);
     });
-  }
+  };

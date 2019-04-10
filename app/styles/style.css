@@ -378,9 +378,12 @@ p, a, span {
 } */
 
 [class*='col -'] {
-  width: 50%;
+  width: 100%;
 }
 
+/*
+If width of screen is 768px or larger, column widths are as follows:
+*/
 @media only screen and (min-width: 768px) {
   .col-1 {width: 8.33%;}
   .col-2 {width: 16.66%;}
@@ -396,15 +399,23 @@ p, a, span {
   .col-12 {width: 100%;}
 }
 
+@media only screen and (min-width: 768px) {
+}
+
+/*
+If width of screen is 600px or less
+*/
 @media only screen and (max-width:600px) {
-  tr { display: block; float: left; }
+  tr { display:block; float: left; }
   th, td { display: block; }
   .nameOfskill {
     margin-top:10px;
     font-size:28px;
   }
-  .col-1 {max-height: 8.33%;}
+  /*
+  .col-1 {max-width: 8.33%;}
   .col-4 {max-width: 75%;}
   .col-7 {max-width:83.33%;}
   .col-6 {max-width:91.66% }
+  */
 }

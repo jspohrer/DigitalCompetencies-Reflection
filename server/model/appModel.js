@@ -1,45 +1,44 @@
 'user strict';
 
-var db = require('./sqlDB')
+const db = require('./sqlDB');
 
-function Application(compIndex, intIndex, usage) {
-  this.comp_id      = competency;
-  this.int_id       = interest;
-  this.application  = usage;
-};
-
-  Application.create_new_app = function(comp, interest, usage, user) {
+class Application {
+  constructor(competency, interest, usage, user) {
+    this.competency = competency;
+    this.interest = interest;
     this.application = usage;
-    db.query("SELECT comp_id FROM DigitalCompetencies WHERE competencies=?", comp,
-        function(err, res) {
-          if (err) {
-            console.log("error; ", err);
-            result(err, null);
-        }
-        else {
-          this.comp_id = result[0].comp_id;
-        }
-      });
-    db.query("SELECT int_id FROM DigitalCompetencies WHERE interest =?", interest,
-        function(err, res) {
-          if (err) {
-            console.log("error; ", err);
-            result(err, null);
-        }
-        else {
-          this.int_id = result[0].int_id;
-        }
-      });
-    var application = [user, this.comp_id, this.int_id, this.application];
-    db.query("INSERT INTO Usage VALUES ?", application, function(err, res) {
-      if (err) {
-        console.log("error; ", err)
-        result(err, null);
+    this.user = user;
+  }
+
+ //application object method for creating a new sql entry
+  newSQLEntry() {
+    var comp_id;
+    var int_id;
+    console.log("Competency: " + this.competency);
+    db.query("SELECT comp_id FROM DigitalCompetencies WHERE competencies = ?", this.competency,
+               function(err, result, fields){
+                 if (err) throw err;
+                 //console.log(result);
+                 comp_id = result[0].comp_id;
+                 //console.log("Model print: " + comp_id);
+               });
+    db.query("SELECT int_id FROM Interest WHERE interest = ?", this.interest,
+              function(err, result, fields){
+                if (err) throw err;
+                //console.log(result);
+                int_id = result[0].int_id;
+                //console.log("Model print: " + int_id);
+              });
+    //console.log("Application: " + this.application);
+    //console.log("User: " + this.user);
+    var application = ('1', this.user, comp_id, int_id, this.application);
+    var sql = "INSERT INTO Applications (id, user_id, comp_id, int_id, applications) VALUES ? "
+    db.query(sql, [application], function(err, result, fields){
+                if (err) throw err;
+                console.log(result);
+                console.log("Table updated");
+              });
+            }
       }
-      else {
-        console.log("Table updated");
-      }
-    });
-  };
 
 module.exports = Application;
