@@ -399,7 +399,7 @@ If width of screen is 768px or larger, column widths are as follows:
   .col-12 {width: 100%;}
 } */
 
-@media only screen and {min-width: 768px} {
+@media only screen and (min-width: 768px} {
   tr {display: block;}
 }
 
