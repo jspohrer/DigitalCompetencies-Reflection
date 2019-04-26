@@ -394,7 +394,7 @@ If width of screen is 600px or less
 
 
   @media only screen and (min-width: 1200px) {
-    .col-1 {width : 0.50%;}
+    .col-1 {width : 0%;}
   }
 
   /*
