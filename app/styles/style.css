@@ -393,16 +393,15 @@ If width of screen is 600px or less
   }
 
 
-  /* @media only screen and (min-width: 768px) {
-    tr { display:block; float:left; }
-  } */
+  @media only screen and (min-width: 1200px) {
+    .col-1 {width:2.50%;}
+  }
 
   /*
   If width of screen is 768px or larger, column widths are as follows:
 */
   @media only screen and (min-width: 768px) {
-    .col-0 {width: 2.50%;}
-    .col-1 {width: 6%;}
+    .col-1 {width: 1.50%;}
     .col-2 {width: 16.66%;}
     .col-3 {width: 25%;}
     .col-4 {width: 33.33%;}
