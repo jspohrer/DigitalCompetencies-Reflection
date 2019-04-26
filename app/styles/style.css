@@ -411,7 +411,7 @@ If width of screen is 600px or less
   } */
 
   @media only screen and (min-width: 768px) {
-    .table {display:block;}
+    tr { display:block; float:left; }
   }
 
   /*
