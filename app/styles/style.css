@@ -402,7 +402,7 @@ If width of screen is 600px or less
 */
   @media only screen and (min-width: 768px) {
     .col-0 {width: 5.50%;}
-    .col-05 {width: 6.50%;}
+    .col-05 {width: 8%;}
     .col-1 {width: 8.33%;}
     .col-2 {width: 16.66%;}
     .col-3 {width: 25%;}
