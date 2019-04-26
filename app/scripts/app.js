@@ -115,8 +115,8 @@
   }
 
   function addRow(obj, tableID) {
-    var this_table = document.getElementById(tableID);
-    var this_row = this_table.insertRow();
+    var this_body = document.getElementById(tableID + ' body');
+    var this_row = this_body.insertRow();
     var cell1 = this_row.insertCell(0);
     cellFontStyle(cell1);
     var cell2 = this_row.insertCell(1);
@@ -143,11 +143,13 @@
   };
 
   function printToPDF() {
-    var summaryPDF = "YourResults.pdf";
-    var quality = 3
-    html2canvas(document.querySelector("#convertTopdf"), {scale: quality}).then(canvas => {
-      let pdf = new jsPDF('p', 'mm', 'a4');
-      pdf.addImage(canvas.toDataURL('image/jpeg'), 'JPEG', 0, 0, 149, 211);
-      pdf.save(summaryPDF);
-    });
+    var tableIds = ['Very Interested', 'Somewhat Interested', "Neutral", "Not Very Interested", "Not at all interested"];
+    var doc = new jsPDF();
+    for (var i = 0; i < tableIds.length; i++) {
+      doc.autoTable({
+        html: tableIds[i],
+        columnStyles: {0: {minCellWidth: number = 65}},
+      });
+    }
+    doc.save("Your Data.pdf");
   };

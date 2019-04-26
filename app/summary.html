@@ -11,7 +11,6 @@
   <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Mali" rel="stylesheet">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://unpkg.com/jspdf@latest/dist/jspdf.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.auto.min.js"></script>
   </head>
@@ -34,87 +33,105 @@
 
   <!-- Table for the Very Interested Level -->
   <div id="convertTopdf">
-    <table id= 'Very Interested' class='table table-striped table-dark' style="table-layout:fixed;">
+  <div>
+    <!-- <h2>Very Interested</h2> -->
+    <table id='Very Interested' class='table table-striped table-dark' style="table-layout:fixed;">
       <thead>
-        <tr>
-          <th scope='col' colspan="2"> Very Interested </th>
-        </tr>
-      </thead>
-      <thead>
-        <tr>
-          <th scope='col'>Skill</th>
-          <th scope='col'>How you use it</th>
-      </thead>
-      <tbody>
-      </tbody>
-    </table>
-
-    <table id='Somewhat Interested' class='table table-striped table-light' style="table-layout:fixed">
-      <thead>
-        <tr>
-          <th scope='col' colspan="2"> Somewhat Interested </th>
-        </tr>
-      </thead>
-      <thead>
+          <tr>
+            <th scope='col' colspan="2" style='font-size: 35px'> Very Interested </th>
+          </tr>
+        </thead>
+      <!-- <thead>
         <tr>
           <th scope='col'>Skill</th>
           <th scope='col'>How you use it</th>
-      </thead>
-      <tbody>
+      </thead> -->
+      <tbody id='Very Interested body'>
       </tbody>
     </table>
+  </div>
 
-    <table id="Neutral" class='table table-striped table-dark' style="table-layout:fixed">
-      <thead>
-        <tr>
-          <th scope='col' colspan="2">Neutral</th>
-        </tr>
-      </thead>
-      <thead>
-        <tr>
-          <th scope='col'>Skill</th>
-          <th scope='col'>How you use it</th>
-      </thead>
-      <tbody>
-      </tbody>
-    </table>
+    <div>
+      <!-- <h2>Somewhat Interested</h2> -->
+      <table id='Somewhat Interested' class='table table-striped table-light' style="table-layout:fixed">
+        <thead>
+            <tr>
+              <th scope='col' colspan="2" style='font-size: 35px'> Somewhat Interested </th>
+            </tr>
+          </thead>
+        <!-- <thead>
+          <tr>
+            <th scope='col'>Skill</th>
+            <th scope='col'>How you use it</th>
+        </thead> -->
+        <tbody id='Somewhat Interested body'>
+        </tbody>
+      </table>
+  </div>
 
+    <div>
+      <!-- <h2>Neutral</h2> -->
+      <table id="Neutral" class='table table-striped table-dark' style="table-layout:fixed">
+        <thead>
+            <tr>
+              <th scope='col' colspan="2" style='font-size: 35px'> Neutral </th>
+            </tr>
+          </thead>
+        <!-- <thead>
+          <tr>
+            <th scope='col'>Skill</th>
+            <th scope='col'>How you use it</th>
+        </thead> -->
+        <tbody id='Neutral body'>
+        </tbody>
+      </table>
+  </div>
+
+  <div>
+    <!-- <h2>Not Very Interested</h2> -->
     <table id="Not Very Interested" class='table table-striped table-light' style="table-layout:fixed">
       <thead>
-        <tr>
-          <th scope='col' colspan="2"> Not Very Interested </th>
-        </tr>
-      </thead>
-      <thead>
+          <tr>
+            <th scope='col' colspan="2" style='font-size: 35px'> Not Very Interested </th>
+          </tr>
+        </thead>
+      <!-- <thead>
         <tr>
           <th scope='col'>Skill</th>
           <th scope='col'>How you use it</th>
-      </thead>
-      <tbody>
+      </thead> -->
+      <tbody id='Not Very Interested body'>
       </tbody>
     </table>
+  </div>
 
+  <div>
+    <!-- <h2>Not at all interested</h2> -->
     <table id="Not at all interested" class='table table-striped table-dark' style="table-layout:fixed">
       <thead>
-        <tr>
-          <th scope='col' colspan="2"> Not at all Interested </th>
-        </tr>
-      </thead>
-      <thead>
+          <tr>
+            <th scope='col' colspan="2" style='font-size: 35px'> Not at all Interested </th>
+          </tr>
+        </thead>
+      <!-- <thead>
         <tr>
           <th scope='col'>Skill</th>
           <th scope='col'>How you use it</th>
-      </thead>
-      <tbody>
+      </thead> -->
+      <tbody id='Not at all interested body'>
       </tbody>
     </table>
+  </div>
   </div>
 </body>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js" integrity="sha384-NaWTHo/8YCBYJ59830LTz/P4aQZK1sS0SneOgAvhsIl3zBu8r9RevNg5lHCHAuQ/" crossorigin="anonymous"></script>
+<!-- <script src="https://unpkg.com/jspdf-autotable"></script> -->
 <script src='scripts\db.js'></script>
 <script src='scripts\app.js'></script>
+<script src='scripts\jspdf.plugin.autotable.js'></script>
 <script src='scripts\html2canvas.min.js'></script>
 <!-- getElementsByTagName returns nodelist -->
 <script> (document.getElementsByTagName("body")[0]).addEventListener("load", getAll())</script>
