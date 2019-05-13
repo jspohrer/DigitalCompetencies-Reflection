@@ -1,15 +1,20 @@
+"use-strict";
   /**
   *   Is called in the view to update the database
   *   Iterates through an array of userData DOM elements, creates data object,
   *   and passes object to the updateDB method of the database
   */
 
-  //var server = require('./app/server.js')
-  //const Url = "http://localhost:3306/usage";
+// TODO: Set up user ids with Sockets?
+// TODO: connect the app to the server
+  //var clientId = require('./app/server.js')
+  console.log("Client: " + thisClient);
+  //var url = "http://localhost:3000/usage";
 
 
   function updateValues() {
     studentDB.open(update);
+    updateSQLDB();
   };
 
 
@@ -46,18 +51,26 @@
     document.getElementById('updateDB').innerHTML = 'SUCCESS! Keep Reflecting'
   };
 
+// TODO: Finish this function: This works for all rows on a page.
   function updateSQLDB() {
-    var item = createUsageItem();
-    var id = Date.now() + Math.random().toString(36).substr(2, 9);
-    var sqpldata = {
-      competency: item.name,
-      interest: item.interest,
-      usage: item.usage,
-      user: id
-    }
-    $.post(Url, sqldata, function(sqldata, status) {
-      console.log(`${sqldata} and status is ${status}`)
-    })
+    var data = document.querySelectorAll('.userData')
+    for (var i=0; i < data.length; i++) {
+      var name = data[i].querySelector('.nameOfskill').innerHTML;
+      var usage = data[i].querySelector('.form-control').value;
+      var interest = data[i].querySelector('.custom-select').value;
+      if (usage !== "") {
+        var sqldata = {
+          competency: name,
+          interest: interest,
+          application: usage,
+          user: 'ghbf'
+        };
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', "http://localhost:3000/usage", true);
+        xhr.setRequestHeader('Content-type', 'application/json')
+        xhr.send(JSON.stringify(sqldata));
+      }
+    };
 };
 
   /**
