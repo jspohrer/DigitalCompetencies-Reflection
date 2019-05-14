@@ -8,7 +8,7 @@
 // TODO: Set up user ids with Sockets?
 // TODO: connect the app to the server
   //var clientId = require('./app/server.js')
-  console.log("Client: " + thisClient);
+  //console.log("Client: " + thisClient);
   //var url = "http://localhost:3000/usage";
 
 

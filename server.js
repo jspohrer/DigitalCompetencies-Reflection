@@ -5,6 +5,7 @@
 const express = require('express'),
         app = express(),
         server = require('http');
+        path = require('path');
         bodyParser = require('body-parser');
         cookieParser = require('cookie-parser');
         session = require('express-session');
@@ -15,8 +16,10 @@ const express = require('express'),
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.static(path.join(__dirname, 'public')))
+app.set('views', path.join(__dirname, 'views'));
 app.use(cookieParser());
-app.use(session({secret: "hjt567"}));
+//app.use(session({secret: "hjt567"}));
 routes(app);
 
 // exports.start = function(cb) {
@@ -26,13 +29,6 @@ routes(app);
 app.listen(port);
 var thisClient = Math.random().toString(36).replace(/[^a-z]+/g, '').substr(2, 19);
 exports.thisClient;
-// server.createServer(function (req, res) {
-//   console.log("is here");
-//   var thisClient = Math.random().toString(36).replace(/[^a-z]+/g, '').substr(2, 19);
-//   console.log(thisClient);
-//   res.cookie('clientId', thisClient);
-//   res.status(200).json({success: 'success'});
-// }).listen(port);
 
 
 
