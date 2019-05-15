@@ -11,7 +11,7 @@ var executed;
 //console.log("before: " + count);
   var generateClientId = (function() {
     return function() {
-      if (!exected) {
+      if (!executed) {
         count++;
         //sessionStorage.setItem('flag', true);
         exected = true;
