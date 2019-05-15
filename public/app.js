@@ -77,7 +77,7 @@ var executed;
           user: clientId
         };
         var xhr = new XMLHttpRequest();
-        xhr.open('POST', "http://localhost:3000/usage", true);
+        xhr.open('POST', "https://digicomp-reflection.herokuapp.com/usage", true);
         xhr.setRequestHeader('Content-type', 'application/json')
         xhr.send(JSON.stringify(sqldata));
       }
