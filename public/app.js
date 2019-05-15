@@ -5,7 +5,7 @@
   *   and passes object to the updateDB method of the database
   */
 sessionStorage.setItem('flag', false);
-var clientId = null;
+sessionStorage.setItem('id', null);
 //var executed;
 //var count = 1;
 //console.log("before: " + count);
@@ -15,7 +15,7 @@ var clientId = null;
         //count++;
         sessionStorage.setItem('flag', true);
         //exected = true;
-        clientId = Math.random().toString(36).replace(/[^a-z]+/g, '').substr(2, 19);
+        sessionStorage.setItem('id', Math.random().toString(36).replace(/[^a-z]+/g, '').substr(2, 19));
       };
     };
  })();
@@ -74,7 +74,7 @@ var clientId = null;
           competency: name,
           interest: interest,
           application: usage,
-          user: clientId
+          user: sessionStorage.getItem('id')
         };
         var xhr = new XMLHttpRequest();
         xhr.open('POST', "http://localhost:3000/usage", true);
