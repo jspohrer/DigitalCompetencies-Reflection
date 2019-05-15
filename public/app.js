@@ -4,21 +4,23 @@
   *   Iterates through an array of userData DOM elements, creates data object,
   *   and passes object to the updateDB method of the database
   */
+sessionStorage.setItem('flag', false);
 var clientId = null;
-var executed;
-var count = 1;
-console.log("before: " + count);
+//var executed;
+//var count = 1;
+//console.log("before: " + count);
   var generateClientId = (function() {
     return function() {
-      if (!executed) {
+      if (!sessionStorage.getItem('flag')) {
         count++;
-        exected = true;
+        sessionStorage.setItem('flag', true);
+        //exected = true;
         clientId = Math.random().toString(36).replace(/[^a-z]+/g, '').substr(2, 19);
       };
     };
  })();
  generateClientId();
- console.log("after: " + count);
+ //console.log("after: " + count);
 
   function updateValues() {
     studentDB.open(update);
