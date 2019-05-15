@@ -4,17 +4,17 @@
   *   Iterates through an array of userData DOM elements, creates data object,
   *   and passes object to the updateDB method of the database
   */
-//sessionStorage.setItem('flag', false);
+sessionStorage.setItem('flag', false);
 var clientId = null;
-var executed;
+//var executed;
 //var count = 1;
 //console.log("before: " + count);
   var generateClientId = (function() {
     return function() {
-      if (!executed) {
+      if (!sessionStorage.getItem('flag')) {
         //count++;
-        //sessionStorage.setItem('flag', true);
-        exected = true;
+        sessionStorage.setItem('flag', true);
+        //exected = true;
         clientId = Math.random().toString(36).replace(/[^a-z]+/g, '').substr(2, 19);
       };
     };
@@ -77,7 +77,7 @@ var executed;
           user: clientId
         };
         var xhr = new XMLHttpRequest();
-        xhr.open('POST', "https://digicomp-reflection.herokuapp.com/usage", true);
+        xhr.open('POST', "http://localhost:3000/usage", true);
         xhr.setRequestHeader('Content-type', 'application/json')
         xhr.send(JSON.stringify(sqldata));
       }
