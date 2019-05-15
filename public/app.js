@@ -12,7 +12,7 @@ var executed;
   var generateClientId = (function() {
     return function() {
       if (!executed) {
-        count++;
+        //count++;
         //sessionStorage.setItem('flag', true);
         exected = true;
         clientId = Math.random().toString(36).replace(/[^a-z]+/g, '').substr(2, 19);
