@@ -16,6 +16,7 @@ sessionStorage.setItem('id', null);
         sessionStorage.setItem('flag', true);
         //exected = true;
         sessionStorage.setItem('id', JSON.stringify(Math.random().toString(36).replace(/[^a-z]+/g, '').substr(2, 19)));
+        console.log(sessionStorage.getItem('id'));
       };
     };
  })();
