@@ -6,13 +6,13 @@ const express = require('express'),
         app = express(),
         server = require('http');
         path = require('path');
+        db = require('./server/model/sqlDB');
         bodyParser = require('body-parser');
         cookieParser = require('cookie-parser');
         session = require('express-session');
-        db = require('./server/model/sqlDB');
         routes = require('./server/routes/appRoutes')
         io = require('socket.io-client')(server);
-        port = process.env.PORT;
+        port = process.env.PORT || 3000;
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
