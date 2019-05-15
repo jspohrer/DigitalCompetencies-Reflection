@@ -6,10 +6,13 @@
   */
 var clientId = null;
 var executed;
+var count = 1;
+conole.log(count);
 
   var generateClientId = (function() {
     return function() {
       if (!executed) {
+        count++;
         exected = true;
         clientId = Math.random().toString(36).replace(/[^a-z]+/g, '').substr(2, 19);
       };
