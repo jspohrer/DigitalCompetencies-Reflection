@@ -12,24 +12,6 @@ var generateId = function() {
 
 generateId();
 console.log(sessionStorage.getItem('id'));
-// console.log(sessionStorage.getItem('flag'));
-//   var generateClientId = (function() {
-//     console.log('is running');
-//     sessionStorage.setItem('flag', false);
-//     sessionStorage.setItem('id', null);
-//     return function() {
-//       if (!sessionStorage.getItem('flag')) {
-//         console.log('is here')
-//         //count++;
-//         sessionStorage.setItem('flag', true);
-//         //exected = true;
-//         sessionStorage.setItem('id', JSON.stringify(Math.random().toString(36).replace(/[^a-z]+/g, '').substr(2, 19)));
-//         console.log(sessionStorage.getItem('id'));
-//       };
-//     };
-//  })();
-//  generateClientId();
- //console.log("after: " + count);
 
   function updateValues() {
     studentDB.open(update);
@@ -179,10 +161,13 @@ console.log(sessionStorage.getItem('id'));
     var tableIds = ['Very Interested', 'Somewhat Interested', "Neutral", "Not Very Interested", "Not at all interested"];
     var doc = new jsPDF();
     for (var i = 0; i < tableIds.length; i++) {
-      doc.autoTable({
-        html: tableIds[i],
-        columnStyles: {0: {minCellWidth: number = 65}},
-      });
+      var this_body = document.getElementById(tableIds[i] + ' body');
+      if (this_body.rows.length == 0) {
+        doc.autoTable({
+          html: tableIds[i],
+          columnStyles: {0: {minCellWidth: number = 65}},
+        });
+      }
     }
     doc.save("Your Data.pdf");
   };

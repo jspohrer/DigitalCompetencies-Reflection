@@ -12,8 +12,8 @@ class Application {
 
  //application object method for creating a new sql entry
   newSQLEntry() {
-    console.log("comp_id: " + this.competency);
-    console.log("int_id: " + this.interest);
+    //console.log("comp_id: " + this.competency);
+    //console.log("int_id: " + this.interest);
     var application = [this.user, this.competency, this.interest, this.application];
     var sql = "INSERT INTO Applications (user_id, comp_id, int_id, applications) VALUES (?,?,?,?) "
     db.query(sql, application, function(err, result){

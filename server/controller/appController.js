@@ -9,9 +9,6 @@ exports.post_new_application = function(req, res) {
   //console.log(req);
   var application = new Application(null, null, req.body.application, req.body.user);
   var i = 0;
-  console.log("competency: " + req.body.competency);
-  console.log("interest: " + req.body.interest);
-  console.log("usage: " + req.body.application)
   var queryList = [
     {queryString: "SELECT comp_id FROM DigitalCompetencies WHERE competencies = ?", var: req.body.competency},
     {queryString: "SELECT int_id FROM Interest WHERE interest = ?", var: req.body.interest},
@@ -26,8 +23,6 @@ exports.post_new_application = function(req, res) {
                   }
             });
  }).then(function(result){
-   console.log("result: " + result);
-   console.log(i);
    application.competency = result[0].comp_id;
    return new Promise(function(resolve, reject) {
      db.query(queryList[i].queryString, queryList[i].var, function(err, result){
@@ -41,10 +36,6 @@ exports.post_new_application = function(req, res) {
    });
  }).then(function(result) {
    application.interest = result[0].int_id;
-   console.log(application.competency);
-   console.log(application.interest);
-   console.log(application.application);
-   console.log(application.user);
    application.newSQLEntry();
    res.status(200).json({success: 'success'});
  }).catch(function(result) {
