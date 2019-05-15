@@ -12,7 +12,7 @@ const express = require('express'),
         db = require('./server/model/sqlDB');
         routes = require('./server/routes/appRoutes')
         io = require('socket.io-client')(server);
-        port = process.env.PORT || 3000;
+        port = process.env.PORT;
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
