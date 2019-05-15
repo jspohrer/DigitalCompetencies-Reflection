@@ -5,26 +5,30 @@
   *   and passes object to the updateDB method of the database
   */
 
-//var executed;
-//var count = 1;
-//console.log("before: " + count);
-console.log(sessionStorage.getItem('flag'));
-  var generateClientId = (function() {
-    console.log('is running');
-    sessionStorage.setItem('flag', false);
-    sessionStorage.setItem('id', null);
-    return function() {
-      if (!sessionStorage.getItem('flag')) {
-        console.log('is here')
-        //count++;
-        sessionStorage.setItem('flag', true);
-        //exected = true;
-        sessionStorage.setItem('id', JSON.stringify(Math.random().toString(36).replace(/[^a-z]+/g, '').substr(2, 19)));
-        console.log(sessionStorage.getItem('id'));
-      };
-    };
- })();
- generateClientId();
+var generateId = function() {
+  sessionStorage.setItem('id', JSON.stringify(Math.random().toString(36).replace(/[^a-z]+/g, '').substr(2, 19)));
+}
+
+var initializeId = _.once(generateId);
+initializeId();
+console.log(sessionStorage.getItem('id'));
+// console.log(sessionStorage.getItem('flag'));
+//   var generateClientId = (function() {
+//     console.log('is running');
+//     sessionStorage.setItem('flag', false);
+//     sessionStorage.setItem('id', null);
+//     return function() {
+//       if (!sessionStorage.getItem('flag')) {
+//         console.log('is here')
+//         //count++;
+//         sessionStorage.setItem('flag', true);
+//         //exected = true;
+//         sessionStorage.setItem('id', JSON.stringify(Math.random().toString(36).replace(/[^a-z]+/g, '').substr(2, 19)));
+//         console.log(sessionStorage.getItem('id'));
+//       };
+//     };
+//  })();
+//  generateClientId();
  //console.log("after: " + count);
 
   function updateValues() {
