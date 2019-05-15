@@ -4,7 +4,19 @@
   *   Iterates through an array of userData DOM elements, creates data object,
   *   and passes object to the updateDB method of the database
   */
+var executed = false;
+var clientId = null;
 
+  var generateClientId = (function() {
+    return function() {
+      if (!executed) {
+        exected = true;
+        clientId = Math.random().toString(36).replace(/[^a-z]+/g, '').substr(2, 19);
+      };
+    };
+ })();
+
+ generateClientId();
 
   function updateValues() {
     studentDB.open(update);
@@ -58,7 +70,7 @@
           competency: name,
           interest: interest,
           application: usage,
-          user: 'ghbf'
+          user: clientId
         };
         var xhr = new XMLHttpRequest();
         xhr.open('POST', "http://localhost:3000/usage", true);

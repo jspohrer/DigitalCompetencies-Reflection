@@ -8,9 +8,9 @@ module.exports = function(app) {
 
   app.route('/')
     .get(function (req, res) {
-      var thisClient = Math.random().toString(36).replace(/[^a-z]+/g, '').substr(2, 19);
-      res.cookie('clientId', thisClient).send('cookie set');
-        //res.status(200).json({success: 'success'});
+       //var thisClient = Math.random().toString(36).replace(/[^a-z]+/g, '').substr(2, 19);
+       //res.cookie('clientId', thisClient).send('cookie set');
+      //res.status(200).json({success: 'success'});
       res.sendFile(path.join(__dirname, 'index.html'));
     })
 }
