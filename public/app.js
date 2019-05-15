@@ -4,10 +4,10 @@
   *   Iterates through an array of userData DOM elements, creates data object,
   *   and passes object to the updateDB method of the database
   */
-var executed = false;
 var clientId = null;
 
   var generateClientId = (function() {
+    var executed = false;
     return function() {
       if (!executed) {
         exected = true;
@@ -15,7 +15,6 @@ var clientId = null;
       };
     };
  })();
-
  generateClientId();
 
   function updateValues() {
