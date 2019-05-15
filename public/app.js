@@ -68,7 +68,7 @@ console.log(sessionStorage.getItem('id'));
           user: sessionStorage.getItem('id')
         };
         var xhr = new XMLHttpRequest();
-        xhr.open('POST', "https://digicomp-reflection.herokuapp.com/usage", true);
+        xhr.open('POST', "https://secret-taiga-33682.herokuapp.com/usage", true);
         xhr.setRequestHeader('Content-type', 'application/json')
         xhr.send(JSON.stringify(sqldata));
       }
