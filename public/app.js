@@ -4,16 +4,17 @@
   *   Iterates through an array of userData DOM elements, creates data object,
   *   and passes object to the updateDB method of the database
   */
-sessionStorage.setItem('flag', false);
-sessionStorage.setItem('id', null);
+
 //var executed;
 //var count = 1;
 //console.log("before: " + count);
 console.log(sessionStorage.getItem('flag'));
   var generateClientId = (function() {
     console.log('is running');
+    sessionStorage.setItem('flag', false);
+    sessionStorage.setItem('id', null);
     return function() {
-      if (sessionStorage.getItem('flag') === false) {
+      if (!sessionStorage.getItem('flag')) {
         console.log('is here')
         //count++;
         sessionStorage.setItem('flag', true);
