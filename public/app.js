@@ -4,14 +4,13 @@
   *   Iterates through an array of userData DOM elements, creates data object,
   *   and passes object to the updateDB method of the database
   */
-import once from 'ramda/src/once.js';
 
 var generateId = function() {
+  generateId = function(){};
   sessionStorage.setItem('id', JSON.stringify(Math.random().toString(36).replace(/[^a-z]+/g, '').substr(2, 19)));
 }
 
-var initializeId = once(generateId());
-initializeId();
+generateId();
 console.log(sessionStorage.getItem('id'));
 // console.log(sessionStorage.getItem('flag'));
 //   var generateClientId = (function() {
