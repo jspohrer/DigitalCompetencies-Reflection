@@ -5,12 +5,6 @@
   *   and passes object to the updateDB method of the database
   */
 
-// TODO: Set up user ids with Sockets?
-// TODO: connect the app to the server
-  //var clientId = require('./app/server.js')
-  //console.log("Client: " + thisClient);
-  //var url = "http://localhost:3000/usage";
-
 
   function updateValues() {
     studentDB.open(update);
@@ -56,6 +50,7 @@
     var data = document.querySelectorAll('.userData')
     for (var i=0; i < data.length; i++) {
       var name = data[i].querySelector('.nameOfskill').innerHTML;
+      console.log(name);
       var usage = data[i].querySelector('.form-control').value;
       var interest = data[i].querySelector('.custom-select').value;
       if (usage !== "") {

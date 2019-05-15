@@ -11,6 +11,7 @@ exports.post_new_application = function(req, res) {
   var i = 0;
   console.log("competency: " + req.body.competency);
   console.log("interest: " + req.body.interest);
+  console.log("usage: " + req.body.application)
   var queryList = [
     {queryString: "SELECT comp_id FROM DigitalCompetencies WHERE competencies = ?", var: req.body.competency},
     {queryString: "SELECT int_id FROM Interest WHERE interest = ?", var: req.body.interest},
