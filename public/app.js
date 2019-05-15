@@ -7,8 +7,7 @@
 var clientId = null;
 var executed;
 var count = 1;
-conole.log(count);
-
+console.log("before: " + count);
   var generateClientId = (function() {
     return function() {
       if (!executed) {
@@ -19,6 +18,7 @@ conole.log(count);
     };
  })();
  generateClientId();
+ console.log("after: " + count);
 
   function updateValues() {
     studentDB.open(update);
