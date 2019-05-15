@@ -13,8 +13,8 @@ console.log(sessionStorage.getItem('flag'));
   var generateClientId = (function() {
     console.log('is running');
     return function() {
-      if (sessionStorage.getItem('flag') == false) {
-        console.log('is running')
+      if (sessionStorage.getItem('flag') === false) {
+        console.log('is here')
         //count++;
         sessionStorage.setItem('flag', true);
         //exected = true;
