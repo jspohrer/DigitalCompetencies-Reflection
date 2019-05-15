@@ -162,6 +162,7 @@ console.log(sessionStorage.getItem('id'));
     var doc = new jsPDF();
     for (var i = 0; i < tableIds.length; i++) {
       var this_body = document.getElementById(tableIds[i] + ' body');
+      console.log(this_body);
       if (this_body.rows.length == 0) {
         doc.autoTable({
           html: tableIds[i],
