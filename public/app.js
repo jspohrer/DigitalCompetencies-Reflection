@@ -5,9 +5,9 @@
   *   and passes object to the updateDB method of the database
   */
 var clientId = null;
+var executed;
 
   var generateClientId = (function() {
-    var executed = false;
     return function() {
       if (!executed) {
         exected = true;

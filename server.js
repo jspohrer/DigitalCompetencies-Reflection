@@ -23,10 +23,5 @@ app.use(express.static(path.join(__dirname, '/views')));
 routes(app);
 
 app.listen(port);
-var thisClient = Math.random().toString(36).replace(/[^a-z]+/g, '').substr(2, 19);
-exports.thisClient;
-
-
-
 
 console.log("API Server started on: " + port);
