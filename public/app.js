@@ -11,7 +11,8 @@ sessionStorage.setItem('id', null);
 //console.log("before: " + count);
   var generateClientId = (function() {
     return function() {
-      if (!sessionStorage.getItem('flag')) {
+      if (sessionStorage.getItem('flag') == false) {
+        console.log('is running')
         //count++;
         sessionStorage.setItem('flag', true);
         //exected = true;
