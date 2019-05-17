@@ -1,3 +1,3 @@
-https://lgoloh.github.io/DigitalCompetencies-Reflection/app/index.html
+https://digicomp-reflection.herokuapp.com/index.html
 
 
