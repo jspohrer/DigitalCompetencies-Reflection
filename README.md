@@ -3,10 +3,10 @@ A Digital Competencies website built with HTML, CSS and javascript for the Bryn 
 Project structure for source code:
 - views    : Holds the static html files for each competency page
 - public
-  - styles : CSS strylesheet
-  - media files: image resources
-  - app.js: interface used by views to interact with database
-  - db.js: sets up the database and provides interface for app-database interactions
+  - styles       : CSS stylesheet
+  - media files  : image resources
+  - app.js       : interface used by views to interact with database
+  - db.js        : sets up the database and provides interface for app-database interactions
 - server
 
 
