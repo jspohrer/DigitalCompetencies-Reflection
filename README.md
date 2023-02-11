@@ -2,7 +2,9 @@ A Digital Competencies website built with HTML, CSS and javascript for the Bryn 
 Hosted on Firebase 
 
 Project structure for source code:
+
 -src
+  
   -public 
   - styles       : CSS stylesheet
   - media files  : image resources
