@@ -10,6 +10,6 @@ Project structure for source code:
 - server
 
 
-https://digicomp-reflection.herokuapp.com/index.html
+https://digital-competencies-refl.web.app/index.html
 
 
